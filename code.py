@@ -12,20 +12,16 @@ y = y.reshape(y.shape[0], 1)
 # Create X matrice
 X = np.hstack((x, np.ones(x.shape)))
 X = np.hstack((x**2, X))
-print(X.shape)
-print(X[:10])
 
 # Initialize Theta parameter
 theta = np.random.randn(3, 1)
-print(theta)
 
 #Def the mode
 def model(X, theta):
     return X.dot(theta)
 
 #Plot the dataset
-plt.scatter(x, y)
-plt.plot(x, model(X, theta), c='r')
+plt.scatter(x[:,0], y)
 
 # Cost funciton
 def costFunction(X, y, theta):
@@ -50,12 +46,12 @@ thetaFinal, costHistory  = gradientDescent(X, y, theta, learningRate=0.01, nIter
 
 # Verifying the parameters
 prediction = model(X, thetaFinal)
-plt.plot(x, prediction, c='g')
-#plt.show()
+plt.scatter(x[:,0], prediction, c='g')
+plt.show()
 
 # Ploting the learning curve
 plt.plot(range(1000), costHistory)
-#plt.show()
+plt.show()
 
 # Calculating performance using the Least squares method
 def determiningCoef(y, prediction):
@@ -65,4 +61,4 @@ def determiningCoef(y, prediction):
 
 
 a = determiningCoef(y, prediction)
-#print(a)
+print(a)
