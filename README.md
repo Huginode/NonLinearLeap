@@ -5,4 +5,5 @@ So this regression algo gives event better perf [ 95% ; 99% ]
 
 
 ![alt text]([https://github.com/Huginode/nonLinearLeap/blob/main/Pictures/PolynomialGraph.png?raw=true)
+
 ![alt text]([https://github.com/Huginode/nonLinearLeap/blob/main/Pictures/LearningCurve.png?raw=true)
