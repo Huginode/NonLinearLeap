@@ -3,15 +3,15 @@ import matplotlib.pyplot as plt
 from sklearn.datasets import make_regression
 
 #Random regression Graph using sklearn
-x, y = make_regression(n_samples= 100, n_features=1, noise=10)
+x, y = make_regression(n_samples= 100, n_features=2, noise=10)
 y = y + abs(y/2)
 
 # Of course reshaping y dimensions
 y = y.reshape(y.shape[0], 1)
 
 # Create X matrice
-X = np.hstack((x, np.ones(x.shape)))
-X = np.hstack((x**2, X))
+X = np.hstack((x, np.ones((x.shape[0], 1))))
+
 
 # Initialize Theta parameter
 theta = np.random.randn(3, 1)
@@ -21,7 +21,8 @@ def model(X, theta):
     return X.dot(theta)
 
 #Plot the dataset
-plt.scatter(x[:,0], y)
+plt.scatter(x[:,1], y)
+
 
 # Cost funciton
 def costFunction(X, y, theta):
@@ -46,7 +47,7 @@ thetaFinal, costHistory  = gradientDescent(X, y, theta, learningRate=0.01, nIter
 
 # Verifying the parameters
 prediction = model(X, thetaFinal)
-plt.scatter(x[:,0], prediction, c='g')
+plt.scatter(x[:,1], prediction, c='g')
 plt.show()
 
 # Ploting the learning curve
